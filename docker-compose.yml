@@ -1,0 +1,22 @@
+version: "3.1"
+
+services:
+  postgres:
+    image: postgres:13.4
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - ./volumes/db:/var/lib/postgresql/data
+      - ./postgres/startup.sh:/docker-entrypoint-initdb.d/startup.sh
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      DATABASE_USERNAME: ${DB_USER}
+      DATABASE_PASSWORD: ${DB_PASSWORD}
+      DATABASE_SCHEMA: ${DB_SCHEMA}
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "${DB_USER}", "-d", "${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
