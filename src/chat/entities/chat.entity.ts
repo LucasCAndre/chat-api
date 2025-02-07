@@ -19,11 +19,8 @@ export class Chat {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'enum', enum: ChatType })
-  type: ChatType;
-
   @Column({ type: 'varchar', nullable: true })
-  name?: string;
+  title?: string;
 
   @OneToMany(() => Users, (user) => user.chat)
   users: Users[];

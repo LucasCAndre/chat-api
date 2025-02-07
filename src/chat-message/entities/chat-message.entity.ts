@@ -6,6 +6,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  JoinColumn,
 } from 'typeorm';
 import { Chat } from '../../chat/entities/chat.entity';
 
@@ -14,14 +15,18 @@ export class ChatMessage {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Chat, (chat) => chat.messages, { onDelete: 'CASCADE' })
-  chat: Chat;
+  @Column({ type: 'uuid', nullable: false })
+  chat_id: string;
 
-  @Column({ type: 'uuid' })
-  user_id: string;
+  @ManyToOne(() => Chat, (chat) => chat.messages, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'chat_id', referencedColumnName: 'id' })
+  chat: Chat;
 
   @Column({ type: 'text' })
   message: string;
+
+  @Column({ type: 'uuid', nullable: false })
+  user_id?: string;
 
   @Column({ type: 'uuid', nullable: true })
   reply_to?: string;
