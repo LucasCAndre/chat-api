@@ -27,7 +27,7 @@ export class ChatMessageController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.chatMessageService.findOne(+id);
+    return this.chatMessageService.findOne(id);
   }
 
   @Patch(':id')
@@ -35,11 +35,11 @@ export class ChatMessageController {
     @Param('id') id: string,
     @Body() updateChatMessageDto: UpdateChatMessageDto,
   ) {
-    return this.chatMessageService.update(+id, updateChatMessageDto);
+    return this.chatMessageService.update(id, updateChatMessageDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.chatMessageService.remove(+id);
+    return this.chatMessageService.remove(id);
   }
 }
