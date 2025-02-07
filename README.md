@@ -34,6 +34,9 @@ $ npm install
 ## Before running localy
 
 ```bash
+# .env config
+$ create .env file based on .env.sample and setup variables
+
 # start database (docker required)
 $ npm run start:dev:deps
 
@@ -42,9 +45,6 @@ $ npm run build
 
 # run migrations
 $ npm run migrations:run
-
-# .env config
-$ create .env file based on .env.sample and setup variables
 ```
 
 ## Running the app
