@@ -44,7 +44,7 @@ $ npm run start:dev:deps
 $ npm run build
 
 # run migrations
-$ npm run migrations:run
+$ npm run migration:run
 ```
 
 ## Running the app
