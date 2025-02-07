@@ -24,12 +24,27 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+API to manage messages in a chat system.
 
 ## Installation
 
 ```bash
 $ npm install
+```
+## Before running localy
+
+```bash
+# start database (docker required)
+$ npm run start:dev:deps
+
+# build aplication
+$ npm run build
+
+# run migrations
+$ npm run migrations:run
+
+# .env config
+$ create .env file based on .env.sample and setup variables
 ```
 
 ## Running the app
