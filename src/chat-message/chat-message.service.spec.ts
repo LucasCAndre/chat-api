@@ -43,7 +43,7 @@ describe('ChatMessageService', () => {
   });
 
   it('should create a chat message', async () => {
-    const dto = { chatId: 'chat-uuid', userId: 'user-uuid', message: 'Hello!' };
+    const dto = { chatId: 'chat_uuid', userId: 'user_uuid', message: 'Hello!' };
     await expect(service.create(dto)).resolves.toEqual({ id: 'uuid', ...dto });
     expect(repository.create).toHaveBeenCalledWith(dto);
     expect(repository.save).toHaveBeenCalled();
@@ -57,8 +57,8 @@ describe('ChatMessageService', () => {
   it('should return a chat message by id', async () => {
     const chatMessage = {
       id: 'uuid',
-      chatId: 'chat-uuid',
-      userId: 'user-uuid',
+      chatId: 'chat_uuid',
+      userId: 'user_uuid',
       message: 'Hello!',
     };
     repository.findOne = jest.fn().mockResolvedValue(chatMessage);
@@ -91,8 +91,8 @@ describe('ChatMessageService', () => {
   it('should remove a chat message', async () => {
     const chatMessage = {
       id: 'uuid',
-      chatId: 'chat-uuid',
-      userId: 'user-uuid',
+      chatId: 'chat_uuid',
+      userId: 'user_uuid',
       message: 'Hello!',
     };
     repository.findOne = jest.fn().mockResolvedValue(chatMessage);
