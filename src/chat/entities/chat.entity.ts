@@ -29,8 +29,8 @@ export class Chat {
   messages: ChatMessage[];
 
   @CreateDateColumn()
-  created_at: Date;
+  createdAt: Date;
 
   @UpdateDateColumn()
-  updated_at: Date;
+  updatedAt: Date;
 }

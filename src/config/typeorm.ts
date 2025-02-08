@@ -1,6 +1,7 @@
 import { registerAs } from '@nestjs/config';
 import { config as dotenvConfig } from 'dotenv';
 import { DataSource, DataSourceOptions } from 'typeorm';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 dotenvConfig({ path: '.env' });
 
@@ -13,6 +14,7 @@ const config = {
   database: `${process.env.DB_NAME}`,
   entities: ['dist/**/*.entity{.ts,.js}'],
   migrations: ['dist/migrations/*{.ts,.js}'],
+  namingStrategy: new SnakeNamingStrategy(),
   autoLoadEntities: true,
   synchronize: false,
 };

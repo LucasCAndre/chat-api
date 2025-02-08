@@ -16,7 +16,7 @@ export class ChatMessage {
   id: string;
 
   @Column({ type: 'uuid', nullable: false })
-  chat_id: string;
+  chatId: string;
 
   @ManyToOne(() => Chat, (chat) => chat.messages, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'chat_id', referencedColumnName: 'id' })
@@ -26,17 +26,17 @@ export class ChatMessage {
   message: string;
 
   @Column({ type: 'uuid', nullable: false })
-  user_id?: string;
+  userId?: string;
 
   @Column({ type: 'uuid', nullable: true })
-  reply_to?: string;
+  replyTo?: string;
 
   @CreateDateColumn()
-  created_at: Date;
+  createdAt: Date;
 
   @UpdateDateColumn()
-  updated_at: Date;
+  updatedAt: Date;
 
   @DeleteDateColumn()
-  deleted_at?: Date;
+  deletedAt?: Date;
 }

@@ -17,5 +17,5 @@ export class Users {
   chat: Chat;
 
   @CreateDateColumn()
-  created_at: Date;
+  createdAt: Date;
 }

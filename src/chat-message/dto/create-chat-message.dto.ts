@@ -2,15 +2,15 @@ import { IsUUID, IsString, IsOptional } from 'class-validator';
 
 export class CreateChatMessageDto {
   @IsUUID()
-  chat_id: string;
+  chatId: string;
 
   @IsUUID()
-  user_id: string;
+  userId: string;
 
   @IsString()
   message: string;
 
   @IsUUID()
   @IsOptional()
-  reply_to?: string;
+  replyTo?: string;
 }
